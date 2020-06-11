@@ -132,3 +132,4 @@ C:\Users\Gonzalo\Desktop\Ejercicios C#\Instituto\Programacion\MusicaVirtual2020\
 C:\Users\Gonzalo\Desktop\Ejercicios C#\Instituto\Programacion\MusicaVirtual2020\MusicaVirtual2020.Windows\obj\Debug\MusicaVirtual2020.Windows.csproj.CopyComplete
 C:\Users\Gonzalo\Desktop\Ejercicios C#\Instituto\Programacion\MusicaVirtual2020\MusicaVirtual2020.Windows\obj\Debug\MusicaVirtual2020.Windows.exe
 C:\Users\Gonzalo\Desktop\Ejercicios C#\Instituto\Programacion\MusicaVirtual2020\MusicaVirtual2020.Windows\obj\Debug\MusicaVirtual2020.Windows.pdb
+C:\Users\Gonzalo\Desktop\Ejercicios C#\Instituto\Programacion\MusicaVirtual2020\MusicaVirtual2020.Windows\obj\Debug\MusicaVirtual2020.Windows.NacionalidadFiltrarForm.resources

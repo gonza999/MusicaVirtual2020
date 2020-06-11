@@ -38,14 +38,14 @@
             this.EditarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.BuscarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.ActualizarToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.CerrarToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.DatosDataGridView = new System.Windows.Forms.DataGridView();
-            this.cmnInterprete = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmnNacionalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ImprimirToolStripButton = new System.Windows.Forms.ToolStripDropDownButton();
             this.generalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agrupadoXNacionalidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.filtradoXNacionalidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CerrarToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.DatosDataGridView = new System.Windows.Forms.DataGridView();
+            this.cmnInterprete = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmnNacionalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DatosDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -147,6 +147,41 @@
             this.ActualizarToolStripButton.Text = "Actualizar";
             this.ActualizarToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
+            // ImprimirToolStripButton
+            // 
+            this.ImprimirToolStripButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.generalToolStripMenuItem,
+            this.agrupadoXNacionalidadToolStripMenuItem,
+            this.filtradoXNacionalidadToolStripMenuItem});
+            this.ImprimirToolStripButton.Image = global::MusicaVirtual2020.Windows.Properties.Resources.Print;
+            this.ImprimirToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.ImprimirToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ImprimirToolStripButton.Name = "ImprimirToolStripButton";
+            this.ImprimirToolStripButton.Size = new System.Drawing.Size(66, 59);
+            this.ImprimirToolStripButton.Text = "Imprimir";
+            this.ImprimirToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // generalToolStripMenuItem
+            // 
+            this.generalToolStripMenuItem.Name = "generalToolStripMenuItem";
+            this.generalToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.generalToolStripMenuItem.Text = "General";
+            this.generalToolStripMenuItem.Click += new System.EventHandler(this.generalToolStripMenuItem_Click);
+            // 
+            // agrupadoXNacionalidadToolStripMenuItem
+            // 
+            this.agrupadoXNacionalidadToolStripMenuItem.Name = "agrupadoXNacionalidadToolStripMenuItem";
+            this.agrupadoXNacionalidadToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.agrupadoXNacionalidadToolStripMenuItem.Text = "Agrupado x Nacionalidad";
+            this.agrupadoXNacionalidadToolStripMenuItem.Click += new System.EventHandler(this.agrupadoXNacionalidadToolStripMenuItem_Click);
+            // 
+            // filtradoXNacionalidadToolStripMenuItem
+            // 
+            this.filtradoXNacionalidadToolStripMenuItem.Name = "filtradoXNacionalidadToolStripMenuItem";
+            this.filtradoXNacionalidadToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.filtradoXNacionalidadToolStripMenuItem.Text = "Filtrado x Nacionalidad";
+            this.filtradoXNacionalidadToolStripMenuItem.Click += new System.EventHandler(this.filtradoXNacionalidadToolStripMenuItem_Click);
+            // 
             // CerrarToolStripButton
             // 
             this.CerrarToolStripButton.Image = global::MusicaVirtual2020.Windows.Properties.Resources.Close;
@@ -189,40 +224,6 @@
             this.cmnNacionalidad.HeaderText = "Nacionalidad";
             this.cmnNacionalidad.Name = "cmnNacionalidad";
             this.cmnNacionalidad.ReadOnly = true;
-            // 
-            // ImprimirToolStripButton
-            // 
-            this.ImprimirToolStripButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.generalToolStripMenuItem,
-            this.agrupadoXNacionalidadToolStripMenuItem,
-            this.filtradoXNacionalidadToolStripMenuItem});
-            this.ImprimirToolStripButton.Image = global::MusicaVirtual2020.Windows.Properties.Resources.Print;
-            this.ImprimirToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.ImprimirToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ImprimirToolStripButton.Name = "ImprimirToolStripButton";
-            this.ImprimirToolStripButton.Size = new System.Drawing.Size(66, 59);
-            this.ImprimirToolStripButton.Text = "Imprimir";
-            this.ImprimirToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // generalToolStripMenuItem
-            // 
-            this.generalToolStripMenuItem.Name = "generalToolStripMenuItem";
-            this.generalToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
-            this.generalToolStripMenuItem.Text = "General";
-            this.generalToolStripMenuItem.Click += new System.EventHandler(this.generalToolStripMenuItem_Click);
-            // 
-            // agrupadoXNacionalidadToolStripMenuItem
-            // 
-            this.agrupadoXNacionalidadToolStripMenuItem.Name = "agrupadoXNacionalidadToolStripMenuItem";
-            this.agrupadoXNacionalidadToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
-            this.agrupadoXNacionalidadToolStripMenuItem.Text = "Agrupado x Nacionalidad";
-            this.agrupadoXNacionalidadToolStripMenuItem.Click += new System.EventHandler(this.agrupadoXNacionalidadToolStripMenuItem_Click);
-            // 
-            // filtradoXNacionalidadToolStripMenuItem
-            // 
-            this.filtradoXNacionalidadToolStripMenuItem.Name = "filtradoXNacionalidadToolStripMenuItem";
-            this.filtradoXNacionalidadToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
-            this.filtradoXNacionalidadToolStripMenuItem.Text = "Filtrado x Nacionalidad";
             // 
             // InterpretesForm
             // 

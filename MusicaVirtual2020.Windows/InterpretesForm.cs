@@ -215,7 +215,7 @@ namespace MusicaVirtual2020.Windows
         {
             lista = servicio.GetInterpretes();
             ManejadorDeReportes manejadorDeReportes = new ManejadorDeReportes();
-            var rpt=manejadorDeReportes.GetInterpretesReporte(lista);
+            var rpt = manejadorDeReportes.GetInterpretesReporte(lista);
             ReportesForm frm = new ReportesForm();
             frm.Text = "Reporte Interprete";
             frm.SetReporte(rpt);
@@ -224,7 +224,34 @@ namespace MusicaVirtual2020.Windows
 
         private void agrupadoXNacionalidadToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            lista = servicio.GetInterpretes();
+            ManejadorDeReportes manejadorDeReportes = new ManejadorDeReportes();
+            InterpretesAgrupadoXNacionalidad rpt = manejadorDeReportes.GetReporteInterpretesAgrupados(lista);
+            ReportesForm frm = new ReportesForm();
+            frm.Text = "Reporte Interprete agrupado por Nacionalidad";
+            frm.SetReporte(rpt);
+            frm.ShowDialog(this);
+        }
 
+        private void filtradoXNacionalidadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NacionalidadFiltrarForm frm = new NacionalidadFiltrarForm();
+            DialogResult dr = frm.ShowDialog(this);
+            if (dr == DialogResult.OK)
+            {
+                try
+                {
+                    var nacionalidad = frm.GetNacionalidad();
+                    var listafiltrada = servicio.GetInterpretes(nacionalidad);
+
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(exception.Message, "Error",
+                                               MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+            }
         }
     }
 }

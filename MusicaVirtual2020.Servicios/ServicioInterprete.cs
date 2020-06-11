@@ -62,14 +62,14 @@ namespace MusicaVirtual2020.Servicios
                 throw new Exception(e.Message);
             }
         }
-        public List<Interprete> GetInterpretes()
+        public List<Interprete> GetInterpretes(Nacionalidad nacionalidad=null)
         {
             try
             {
                 cn=new ConexionBd();
                 repositorioNacionalidad=new RepositorioNacionalidades(cn.AbrirConexion());
                 repositorio=new RepositorioInterpretes(cn.AbrirConexion(), repositorioNacionalidad);
-                var lista = repositorio.GetInterpretes();
+                var lista = repositorio.GetInterpretes(nacionalidad);
                 cn.CerrarConexion();
                 return lista;
             }
