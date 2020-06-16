@@ -136,6 +136,7 @@
             this.BuscarToolStripButton.Size = new System.Drawing.Size(46, 59);
             this.BuscarToolStripButton.Text = "Buscar";
             this.BuscarToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BuscarToolStripButton.Click += new System.EventHandler(this.BuscarToolStripButton_Click);
             // 
             // ActualizarToolStripButton
             // 
@@ -146,6 +147,7 @@
             this.ActualizarToolStripButton.Size = new System.Drawing.Size(63, 59);
             this.ActualizarToolStripButton.Text = "Actualizar";
             this.ActualizarToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.ActualizarToolStripButton.Click += new System.EventHandler(this.ActualizarToolStripButton_Click);
             // 
             // ImprimirToolStripButton
             // 

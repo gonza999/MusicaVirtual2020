@@ -243,7 +243,11 @@ namespace MusicaVirtual2020.Windows
                 {
                     var nacionalidad = frm.GetNacionalidad();
                     var listafiltrada = servicio.GetInterpretes(nacionalidad);
-
+                    ManejadorDeReportes manejadorDeReportes = new ManejadorDeReportes();
+                    InterpretesFiltrado rpt = manejadorDeReportes.GetInterpretesFiltrado(listafiltrada);
+                    ReportesForm frmReporte = new ReportesForm();
+                    frmReporte.SetReporte(rpt);
+                    frmReporte.ShowDialog(this);
                 }
                 catch (Exception exception)
                 {
@@ -251,6 +255,42 @@ namespace MusicaVirtual2020.Windows
                                                MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 }
+            }
+        }
+
+        private void BuscarToolStripButton_Click(object sender, EventArgs e)
+        {
+            NacionalidadFiltrarForm frm = new NacionalidadFiltrarForm();
+            DialogResult dr = frm.ShowDialog(this);
+            if (dr == DialogResult.OK)
+            {
+                try
+                {
+                    var nacionalidad = frm.GetNacionalidad();
+                    lista = servicio.GetInterpretes(nacionalidad);
+                    MostrarDatosEnGrilla();
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(exception.Message, "Error",
+                                               MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+            }
+        }
+
+        private void ActualizarToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                lista = servicio.GetInterpretes();
+                MostrarDatosEnGrilla();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message, "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
     }
