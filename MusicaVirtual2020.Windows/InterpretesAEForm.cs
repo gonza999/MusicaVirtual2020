@@ -86,5 +86,7 @@ namespace MusicaVirtual2020.Windows
         {
             this.interprete = interprete;
         }
+
+       
     }
 }

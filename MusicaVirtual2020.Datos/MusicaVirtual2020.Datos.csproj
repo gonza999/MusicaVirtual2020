@@ -47,6 +47,7 @@
     <Compile Include="RepositorioEstilos.cs" />
     <Compile Include="RepositorioInterpretes.cs" />
     <Compile Include="RepositorioNacionalidades.cs" />
+    <Compile Include="RepositorioNegocios.cs" />
     <Compile Include="RepositorioPaises.cs" />
     <Compile Include="RepositorioSoportes.cs" />
   </ItemGroup>
