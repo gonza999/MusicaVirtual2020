@@ -133,3 +133,5 @@ C:\Users\Gonzalo\Desktop\Ejercicios C#\Instituto\Programacion\MusicaVirtual2020\
 C:\Users\Gonzalo\Desktop\Ejercicios C#\Instituto\Programacion\MusicaVirtual2020\MusicaVirtual2020.Windows\obj\Debug\MusicaVirtual2020.Windows.exe
 C:\Users\Gonzalo\Desktop\Ejercicios C#\Instituto\Programacion\MusicaVirtual2020\MusicaVirtual2020.Windows\obj\Debug\MusicaVirtual2020.Windows.pdb
 C:\Users\Gonzalo\Desktop\Ejercicios C#\Instituto\Programacion\MusicaVirtual2020\MusicaVirtual2020.Windows\obj\Debug\MusicaVirtual2020.Windows.NacionalidadFiltrarForm.resources
+C:\Users\Gonzalo\Desktop\Ejercicios C#\Instituto\Programacion\MusicaVirtual2020\MusicaVirtual2020.Windows\obj\Debug\MusicaVirtual2020.Windows.SoportesAEForm.resources
+C:\Users\Gonzalo\Desktop\Ejercicios C#\Instituto\Programacion\MusicaVirtual2020\MusicaVirtual2020.Windows\obj\Debug\MusicaVirtual2020.Windows.SoportesForm.resources

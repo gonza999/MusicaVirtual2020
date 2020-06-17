@@ -48,6 +48,7 @@
     <Compile Include="RepositorioInterpretes.cs" />
     <Compile Include="RepositorioNacionalidades.cs" />
     <Compile Include="RepositorioPaises.cs" />
+    <Compile Include="RepositorioSoportes.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MusicaVirtual2020.Entidades\MusicaVirtual2020.Entidades.csproj">

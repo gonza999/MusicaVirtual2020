@@ -61,5 +61,29 @@ namespace MusicaVirtual2020.Windows
             frm.Show();
 
         }
+
+        private void soporteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SoportesForm frm = SoportesForm.GetInstancia();
+
+            frm.MdiParent = this;
+            frm.WindowState = FormWindowState.Maximized;
+            frm.Dock = DockStyle.Fill;
+
+
+            frm.Show();
+        }
+
+        private void SoportesToolStripButton_Click(object sender, EventArgs e)
+        {
+            SoportesForm frm = SoportesForm.GetInstancia();
+
+            frm.MdiParent = this;
+            frm.WindowState = FormWindowState.Maximized;
+            frm.Dock = DockStyle.Fill;
+
+
+            frm.Show();
+        }
     }
 }
