@@ -56,6 +56,38 @@ namespace MusicaVirtual2020.Datos
             }
         }
 
+        public bool Existe(Estilo estilo)
+        {
+            try
+            {
+                SqlCommand comando = null;
+                SqlDataReader reader = null;
+
+                if (estilo.EstiloId == 0)
+                {
+                    var cadenaComando = "SELECT EstiloId, Estilo FROM Estilos WHERE Estilo=@nombre";
+                    comando = new SqlCommand(cadenaComando, _cn);
+                    comando.Parameters.AddWithValue("@nombre", estilo.Nombre);
+
+                }
+                else
+                {
+                    var cadenaComando = "SELECT EstiloId, Estilo FROM Estilos WHERE Estilo=@nombre AND EstiloId<>@id";
+                    comando = new SqlCommand(cadenaComando, _cn);
+                    comando.Parameters.AddWithValue("@nombre", estilo.Nombre);
+                    comando.Parameters.AddWithValue("@id", estilo.EstiloId);
+                }
+
+                reader = comando.ExecuteReader();
+                return reader.HasRows;
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
+        }
+
         private Estilo ConstruirEstilo(SqlDataReader reader)
         {
             return new Estilo

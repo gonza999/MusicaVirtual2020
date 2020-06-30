@@ -16,40 +16,98 @@ namespace MusicaVirtual2020.Windows
         {
             InitializeComponent();
         }
-
+        #region ToolStripMenuItem_Click
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
         private void PaisesToolStripButton_Click(object sender, EventArgs e)
         {
-            var frm = PaisesForm.GetInstancia();
-
-            frm.MdiParent = this;
-            frm.WindowState = FormWindowState.Maximized;
-            frm.Dock = DockStyle.Fill;
-           
-            frm.Show();
+            ManejarPaises();
         }
-
-       
-        
-
+        private void paisesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManejarPaises();
+        }
         private void EstilosToolStripButton_Click(object sender, EventArgs e)
         {
-            EstilosForm frm = EstilosForm.GetInstancia();
+            ManejarEstilos(); 
+        }
+        private void estilosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManejarEstilos();
+        }
+        private void InterpretesToolStripButton_Click(object sender, EventArgs e)
+        {
+            ManejarInterpretes();        
+        }   
+        private void intérpretesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManejarInterpretes();
+        }
+        private void soporteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManejarSoportes();
+        }
+        private void SoportesToolStripButton_Click(object sender, EventArgs e)
+        {
+            ManejarSoportes();       
+        }
+        private void NegociosToolStripButton_Click(object sender, EventArgs e)
+        {
+            ManejarNegocios();         
+        }
+        private void negociosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManejarNegocios();
+        }
+        private void AlbumesToolStripButton_Click(object sender, EventArgs e)
+        {
+            ManejarAlbumes();
+        }   
+        private void albumesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManejarAlbumes();
+        }
+#endregion
+
+
+        #region Manejadores
+        private void ManejarAlbumes()
+        {
+            AlbumesForm frm = AlbumesForm.GetInstancia();
 
             frm.MdiParent = this;
             frm.WindowState = FormWindowState.Maximized;
             frm.Dock = DockStyle.Fill;
-            
+
 
             frm.Show();
-
         }
 
-        private void InterpretesToolStripButton_Click(object sender, EventArgs e)
+        private void ManejarNegocios()
+        {
+            NegociosForm frm = NegociosForm.GetInstancia();
+
+            frm.MdiParent = this;
+            frm.WindowState = FormWindowState.Maximized;
+            frm.Dock = DockStyle.Fill;
+
+
+            frm.Show();
+        }
+        private void ManejarSoportes()
+        {
+            SoportesForm frm = SoportesForm.GetInstancia();
+
+            frm.MdiParent = this;
+            frm.WindowState = FormWindowState.Maximized;
+            frm.Dock = DockStyle.Fill;
+
+
+            frm.Show();
+        }
+        private void ManejarInterpretes()
         {
             InterpretesForm frm = InterpretesForm.GetInstancia();
 
@@ -59,12 +117,11 @@ namespace MusicaVirtual2020.Windows
 
 
             frm.Show();
-
         }
 
-        private void soporteToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ManejarEstilos()
         {
-            SoportesForm frm = SoportesForm.GetInstancia();
+            EstilosForm frm = EstilosForm.GetInstancia();
 
             frm.MdiParent = this;
             frm.WindowState = FormWindowState.Maximized;
@@ -74,40 +131,19 @@ namespace MusicaVirtual2020.Windows
             frm.Show();
         }
 
-        private void SoportesToolStripButton_Click(object sender, EventArgs e)
+        private void ManejarPaises()
         {
-            SoportesForm frm = SoportesForm.GetInstancia();
+            var frm = PaisesForm.GetInstancia();
 
             frm.MdiParent = this;
             frm.WindowState = FormWindowState.Maximized;
             frm.Dock = DockStyle.Fill;
 
-
             frm.Show();
         }
-
-        private void NegociosToolStripButton_Click(object sender, EventArgs e)
-        {
-            NegociosForm frm = NegociosForm.GetInstancia();
-
-            frm.MdiParent = this;
-            frm.WindowState = FormWindowState.Maximized;
-            frm.Dock = DockStyle.Fill;
+        #endregion
 
 
-            frm.Show();
-        }
 
-        private void negociosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            NegociosForm frm = NegociosForm.GetInstancia();
-
-            frm.MdiParent = this;
-            frm.WindowState = FormWindowState.Maximized;
-            frm.Dock = DockStyle.Fill;
-
-
-            frm.Show();
-        }
     }
 }

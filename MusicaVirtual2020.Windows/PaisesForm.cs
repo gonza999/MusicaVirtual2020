@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MusicaVirtual2020.Entidades;
 using MusicaVirtual2020.Reportes;
 using MusicaVirtual2020.Servicios;
+using MusicaVirtual2020.Windows.Helpers;
 
 namespace MusicaVirtual2020.Windows
 {
@@ -23,9 +24,9 @@ namespace MusicaVirtual2020.Windows
 
         public static PaisesForm GetInstancia()
         {
-            if (instancia==null)
+            if (instancia == null)
             {
-                instancia=new PaisesForm();
+                instancia = new PaisesForm();
                 instancia.FormClosed += form_Close;
             }
 
@@ -94,10 +95,10 @@ namespace MusicaVirtual2020.Windows
 
         private void NuevoToolStripButton_Click(object sender, EventArgs e)
         {
-            PaisesAEForm frm=new PaisesAEForm();
+            PaisesAEForm frm = new PaisesAEForm();
             frm.Text = "Agregar País";
             DialogResult dr = frm.ShowDialog(this);
-            if (dr==DialogResult.OK)
+            if (dr == DialogResult.OK)
             {
                 try
                 {
@@ -106,25 +107,19 @@ namespace MusicaVirtual2020.Windows
                     {
                         servicio.Agregar(pais);
                         var r = ConstruirFila();
-                        SetearFila(r,pais);
+                        SetearFila(r, pais);
                         AgregarFila(r);
-                        MessageBox.Show("Registro agregado", "Mensaje",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        
+                        Helper.MensajeBox("Registro agregado", Tipo.Success);
                     }
                     else
                     {
-                        MessageBox.Show("Registro Duplicado... Alta denegada", "Error",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        
+                        Helper.MensajeBox("Registro Duplicado... Alta denegada", Tipo.Error);
                     }
 
                 }
                 catch (Exception exception)
                 {
-
-                    MessageBox.Show(exception.Message, "Error",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Helper.MensajeBox(exception.Message, Tipo.Error);
                 }
             }
 
@@ -132,15 +127,15 @@ namespace MusicaVirtual2020.Windows
 
         private void BorrarToolStripButton_Click(object sender, EventArgs e)
         {
-            if (DatosDataGridView.SelectedRows.Count>0)
+            if (DatosDataGridView.SelectedRows.Count > 0)
             {
                 var r = DatosDataGridView.SelectedRows[0];
-                Pais pais =(Pais) r.Tag;
+                Pais pais = (Pais)r.Tag;
                 DialogResult dr = MessageBox.Show($"¿Desea borrar de la lista a {pais.Nombre}?",
                     "Confirmar Baja",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question);
-                if (dr==DialogResult.Yes)
+                if (dr == DialogResult.Yes)
                 {
                     try
                     {
@@ -149,25 +144,17 @@ namespace MusicaVirtual2020.Windows
                         {
                             servicio.Borrar(pais);
                             DatosDataGridView.Rows.Remove(r);
-                            MessageBox.Show("Registro Borrado", "Mensaje",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Information);
-
+                            Helper.MensajeBox("Registro Borrado", Tipo.Success);
                         }
                         else
                         {
-                            MessageBox.Show("Registro relacionado...\nBaja denegada",
-                                "Error", MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning
-                            );
+                            Helper.MensajeBox("Registro relacionado...\nBaja denegada", Tipo.Error);
+                            
                         }
                     }
                     catch (Exception exception)
                     {
-                        MessageBox.Show(exception.Message, "Error",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
-                        
+                        Helper.MensajeBox(exception.Message, Tipo.Error);
                     }
                 }
             }
@@ -175,16 +162,16 @@ namespace MusicaVirtual2020.Windows
 
         private void EditarToolStripButton_Click(object sender, EventArgs e)
         {
-            if (DatosDataGridView.SelectedRows.Count>0)
+            if (DatosDataGridView.SelectedRows.Count > 0)
             {
                 var r = DatosDataGridView.SelectedRows[0];
-                Pais p =(Pais) r.Tag;
-                Pais pCopia =(Pais) p.Clone();
-                PaisesAEForm frm=new PaisesAEForm();
+                Pais p = (Pais)r.Tag;
+                Pais pCopia = (Pais)p.Clone();
+                PaisesAEForm frm = new PaisesAEForm();
                 frm.Text = "Editar País";
                 frm.SetPais(p);
                 DialogResult dr = frm.ShowDialog(this);
-                if (dr==DialogResult.OK)
+                if (dr == DialogResult.OK)
                 {
                     try
                     {
@@ -192,20 +179,18 @@ namespace MusicaVirtual2020.Windows
                         if (!servicio.Existe(p))
                         {
                             servicio.Editar(p);
-                            SetearFila(r,p);
-                            MessageBox.Show("Registro editado", "Mensaje", MessageBoxButtons.OK,
-                                MessageBoxIcon.Information);
+                            SetearFila(r, p);
+                            Helper.MensajeBox("Registro Editado", Tipo.Success);
                         }
                         else
                         {
-                            MessageBox.Show("Registro duplicado...\nEdición denegada","Error",
-                                MessageBoxButtons.OK,MessageBoxIcon.Warning);
-                            SetearFila(r,pCopia);
+                            Helper.MensajeBox("Registro duplicado...\nEdición denegada", Tipo.Error);
+                            SetearFila(r, pCopia);
                         }
                     }
                     catch (Exception exception)
                     {
-                            MessageBox.Show(exception.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                        Helper.MensajeBox(exception.Message, Tipo.Error);
                     }
                 }
             }
@@ -216,10 +201,10 @@ namespace MusicaVirtual2020.Windows
             try
             {
                 lista = servicio.GetLista();
-                var manejadorReportes=new ManejadorDeReportes();
-  
+                var manejadorReportes = new ManejadorDeReportes();
+
                 PaisesReporte rpt = manejadorReportes.GetPaisesReporte(lista);
-                ReportesForm frm=new ReportesForm();
+                ReportesForm frm = new ReportesForm();
                 frm.SetReporte(rpt);
                 frm.ShowDialog(this);
             }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MusicaVirtual2020.Entidades;
 using MusicaVirtual2020.Servicios;
+using MusicaVirtual2020.Windows.Helpers;
 
 namespace MusicaVirtual2020.Windows
 {
@@ -50,10 +51,7 @@ namespace MusicaVirtual2020.Windows
             }
             catch (Exception exception)
             {
-
-                MessageBox.Show(exception.Message, "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                Helper.MensajeBox(exception.Message, Tipo.Error);
             }
 
         }
@@ -103,20 +101,24 @@ namespace MusicaVirtual2020.Windows
                 try
                 {
                     var estilo = frm.GetEstilo();
-                    servicio.Agregar(estilo);
-                    DataGridViewRow r = ConstruirFila();
-                    SetearFila(r,estilo);
-                    AgregarFila(r);
-                    MessageBox.Show("Registro agregado con éxito",
-                        "Mensaje",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
+
+                    if (!servicio.Existe(estilo))
+                    {
+                        servicio.Agregar(estilo);
+                        DataGridViewRow r = ConstruirFila();
+                        SetearFila(r, estilo);
+                        AgregarFila(r);
+                        Helper.MensajeBox("Registro agregado con éxito", Tipo.Success);
+
+                    }
+                    else
+                    {
+                        Helper.MensajeBox("Registro Duplicado... Alta denegada", Tipo.Error);
+                    }
                 }
                 catch (Exception exception)
                 {
-                    MessageBox.Show(exception.Message, "Error",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
+                    Helper.MensajeBox(exception.Message, Tipo.Error);
                 }
             }
         }

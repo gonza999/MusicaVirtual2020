@@ -53,6 +53,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlbumAEForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlbumAEForm.Designer.cs">
+      <DependentUpon>AlbumAEForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AlbumesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlbumesForm.Designer.cs">
+      <DependentUpon>AlbumesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EstiloAEForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +77,8 @@
     <Compile Include="EstilosForm.Designer.cs">
       <DependentUpon>EstilosForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Helper.cs" />
+    <Compile Include="Helpers\Tipo.cs" />
     <Compile Include="InterpretesAEForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +153,9 @@
     <Compile Include="SoportesForm.Designer.cs">
       <DependentUpon>SoportesForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AlbumesForm.resx">
+      <DependentUpon>AlbumesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EstiloAEForm.resx">
       <DependentUpon>EstiloAEForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using MusicaVirtual2020.Entidades;
 using MusicaVirtual2020.Reportes;
 using MusicaVirtual2020.Servicios;
+using MusicaVirtual2020.Windows.Helpers;
 
 namespace MusicaVirtual2020.Windows
 {
@@ -44,9 +45,7 @@ namespace MusicaVirtual2020.Windows
             }
             catch (Exception exception)
             {
-                MessageBox.Show(exception.Message, "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                Helper.MensajeBox(exception.Message,Tipo.Error);
             }
         }
         private void MostrarDatosEnGrilla()
@@ -103,23 +102,17 @@ namespace MusicaVirtual2020.Windows
                         DataGridViewRow r = ConstruirFila();
                         SetearFila(r, interprete);
                         AgregarFila(r);
-                        MessageBox.Show("Registro agregado", "Mensaje",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                        Helper.MensajeBox("Registro agregado", Tipo.Success);
                     }
                     else
                     {
-                        MessageBox.Show("Registro Duplicado \nAlta Denegada", "Error",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                        Helper.MensajeBox("Registro Duplicado \nAlta Denegada", Tipo.Error);
                     }
 
                 }
                 catch (Exception exception)
                 {
-                    MessageBox.Show(exception.Message, "Error",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                    Helper.MensajeBox(exception.Message, Tipo.Error);
                 }
             }
         }
@@ -142,22 +135,16 @@ namespace MusicaVirtual2020.Windows
                         {
                             servicio.Borrar(interprete);
                             DatosDataGridView.Rows.Remove(r);
-                            MessageBox.Show("Registro Borrado", "Mensaje",
-                                MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                            Helper.MensajeBox("Registro Borrado", Tipo.Success);
                         }
                         else
                         {
-                            MessageBox.Show("Intérprete con Álbumes \nBaja Denegada", "Error",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                            Helper.MensajeBox("Intérprete con Álbumes \nBaja Denegada", Tipo.Error);
                         }
                     }
                     catch (Exception exception)
                     {
-                        MessageBox.Show(exception.Message, "Error",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                        Helper.MensajeBox(exception.Message, Tipo.Error);
                     }
                 }
 
@@ -185,25 +172,18 @@ namespace MusicaVirtual2020.Windows
                         {
                             servicio.Agregar(interprete);
                             SetearFila(r, interprete);
-                            MessageBox.Show("Registro agregado", "Mensaje",
-                                MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                            Helper.MensajeBox("Registro agregado", Tipo.Success);
                         }
                         else
                         {
                             SetearFila(r, interpreteAux);
-
-                            MessageBox.Show("Registro Duplicado \nAlta Denegada", "Error",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                            Helper.MensajeBox("Registro Duplicado \nAlta Denegada", Tipo.Error);
                         }
 
                     }
                     catch (Exception exception)
                     {
-                        MessageBox.Show(exception.Message, "Error",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                        Helper.MensajeBox(exception.Message, Tipo.Error);
                     }
                 }
 
@@ -251,9 +231,7 @@ namespace MusicaVirtual2020.Windows
                 }
                 catch (Exception exception)
                 {
-                    MessageBox.Show(exception.Message, "Error",
-                                               MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                    Helper.MensajeBox(exception.Message, Tipo.Error);
                 }
             }
         }
@@ -272,9 +250,7 @@ namespace MusicaVirtual2020.Windows
                 }
                 catch (Exception exception)
                 {
-                    MessageBox.Show(exception.Message, "Error",
-                                               MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                    Helper.MensajeBox(exception.Message, Tipo.Error);
                 }
             }
         }
@@ -288,9 +264,7 @@ namespace MusicaVirtual2020.Windows
             }
             catch (Exception exception)
             {
-                MessageBox.Show(exception.Message, "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                Helper.MensajeBox(exception.Message, Tipo.Error);
             }
         }
     }

@@ -1,5 +1,6 @@
 ﻿using MusicaVirtual2020.Entidades;
 using MusicaVirtual2020.Servicios;
+using MusicaVirtual2020.Windows.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,16 +23,7 @@ namespace MusicaVirtual2020.Windows
         {
             base.OnLoad(e);
 
-            ServicioPais servicio = new ServicioPais();
-            var lista = servicio.GetLista();
-            var paisDefault = new Pais();
-            paisDefault.PaisId = 0;
-            paisDefault.Nombre = "<Seleccionar Pais>";
-            lista.Insert(0, paisDefault);
-            comboPais.DataSource = lista;
-            comboPais.DisplayMember = "Nombre";
-            comboPais.ValueMember = "PaisId";
-            comboPais.SelectedIndex = 0;
+            Helper.CargarDatosComboPais(ref comboPais);
 
         }
         private void CancelButton_Click(object sender, EventArgs e)
@@ -64,5 +56,7 @@ namespace MusicaVirtual2020.Windows
         {
             return pais;
         }
+
+
     }
 }

@@ -105,7 +105,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button CancelButton;
+        private new System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Button OkButton;
         private System.Windows.Forms.TextBox PaisTextBox;
         private System.Windows.Forms.Label label1;

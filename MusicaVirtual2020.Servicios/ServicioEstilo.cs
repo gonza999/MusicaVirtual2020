@@ -50,5 +50,22 @@ namespace MusicaVirtual2020.Servicios
                 throw new Exception(e.Message);
             }
         }
+
+        public bool Existe(Estilo estilo)
+        {
+            try
+            {
+                conexion = new ConexionBd();
+                repositorio = new RepositorioEstilos(conexion.AbrirConexion());
+                bool existe = repositorio.Existe(estilo);
+                conexion.CerrarConexion();
+                return existe;
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
+        }
     }
 }
