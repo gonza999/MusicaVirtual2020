@@ -153,6 +153,9 @@
     <Compile Include="SoportesForm.Designer.cs">
       <DependentUpon>SoportesForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AlbumAEForm.resx">
+      <DependentUpon>AlbumAEForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AlbumesForm.resx">
       <DependentUpon>AlbumesForm.cs</DependentUpon>
     </EmbeddedResource>

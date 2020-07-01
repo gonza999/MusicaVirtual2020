@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.DatosDataGridView = new System.Windows.Forms.DataGridView();
+            this.cmnAlbum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmnInterprete = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmnPistas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.NuevoToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.BorrarToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -44,9 +47,6 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.CerrarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.cmnAlbum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmnInterprete = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmnPistas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DatosDataGridView)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -69,6 +69,27 @@
             this.DatosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DatosDataGridView.Size = new System.Drawing.Size(800, 388);
             this.DatosDataGridView.TabIndex = 7;
+            // 
+            // cmnAlbum
+            // 
+            this.cmnAlbum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cmnAlbum.HeaderText = "Album";
+            this.cmnAlbum.Name = "cmnAlbum";
+            this.cmnAlbum.ReadOnly = true;
+            // 
+            // cmnInterprete
+            // 
+            this.cmnInterprete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cmnInterprete.HeaderText = "Interprete";
+            this.cmnInterprete.Name = "cmnInterprete";
+            this.cmnInterprete.ReadOnly = true;
+            // 
+            // cmnPistas
+            // 
+            this.cmnPistas.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cmnPistas.HeaderText = "Pistas";
+            this.cmnPistas.Name = "cmnPistas";
+            this.cmnPistas.ReadOnly = true;
             // 
             // toolStrip1
             // 
@@ -99,6 +120,7 @@
             this.NuevoToolStripButton.Size = new System.Drawing.Size(46, 59);
             this.NuevoToolStripButton.Text = "Nuevo";
             this.NuevoToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.NuevoToolStripButton.Click += new System.EventHandler(this.NuevoToolStripButton_Click);
             // 
             // BorrarToolStripButton
             // 
@@ -206,27 +228,6 @@
             this.toolStripLabel1.Name = "toolStripLabel1";
             this.toolStripLabel1.Size = new System.Drawing.Size(89, 59);
             this.toolStripLabel1.Text = "Albumes";
-            // 
-            // cmnAlbum
-            // 
-            this.cmnAlbum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cmnAlbum.HeaderText = "Album";
-            this.cmnAlbum.Name = "cmnAlbum";
-            this.cmnAlbum.ReadOnly = true;
-            // 
-            // cmnInterprete
-            // 
-            this.cmnInterprete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cmnInterprete.HeaderText = "Interprete";
-            this.cmnInterprete.Name = "cmnInterprete";
-            this.cmnInterprete.ReadOnly = true;
-            // 
-            // cmnPistas
-            // 
-            this.cmnPistas.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cmnPistas.HeaderText = "Pistas";
-            this.cmnPistas.Name = "cmnPistas";
-            this.cmnPistas.ReadOnly = true;
             // 
             // AlbumesForm
             // 

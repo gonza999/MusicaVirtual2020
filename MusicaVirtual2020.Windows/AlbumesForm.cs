@@ -1,4 +1,6 @@
 ﻿using MusicaVirtual2020.Entidades.DTOs;
+using MusicaVirtual2020.Entidades.DTOs.Album;
+using MusicaVirtual2020.Entidades.Mapas;
 using MusicaVirtual2020.Servicios;
 using MusicaVirtual2020.Windows.Helpers;
 using System;
@@ -86,6 +88,30 @@ namespace MusicaVirtual2020.Windows
         private void CerrarToolStripButton_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void NuevoToolStripButton_Click(object sender, EventArgs e)
+        {
+            AlbumAEForm frm = new AlbumAEForm();
+            frm.Text = "Nuevo Album";
+            DialogResult dr = frm.ShowDialog(this);
+            if (dr==DialogResult.OK)
+            {
+                try
+                {
+                    AlbumEditDto albumEditDto = frm.GetAlbum();
+                    servicio.Agregar(albumEditDto);
+                    var r = ConstruirFila();
+                    AlbumListDto albumListDto = Mapeador.ConvertirAlbumListDto(albumEditDto);
+                    SetearFila(r,albumListDto);
+                    AgregarFila(r);
+                    Helper.MensajeBox("Registro agregado con exitó",Tipo.Success);
+                }
+                catch (Exception ex)
+                {
+                    Helper.MensajeBox(ex.Message,Tipo.Error);
+                }
+            }
         }
     }
 }

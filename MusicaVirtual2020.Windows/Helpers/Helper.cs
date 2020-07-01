@@ -24,6 +24,60 @@ namespace MusicaVirtual2020.Windows.Helpers
             comboPais.ValueMember = "PaisId";
             comboPais.SelectedIndex = 0;
         }
+
+        public static void CargarDatosComboInterpretes(ref ComboBox comboInterprete)
+        {
+            ServicioInterprete servicio = new ServicioInterprete();
+            var lista = servicio.GetInterpretes();
+            Interprete interpreteDefault = new Interprete();
+            interpreteDefault.InterpreteId = 0;
+            interpreteDefault.Nombre = "<Seleccionar Interprete>";
+            lista.Insert(0, interpreteDefault);
+            comboInterprete.DataSource = lista;
+            comboInterprete.DisplayMember = "Nombre";
+            comboInterprete.ValueMember = "InterpreteId";
+            comboInterprete.SelectedIndex = 0;
+        }
+
+        public static void CargarDatosComboEstilo(ref ComboBox comboEstilo)
+        {
+            ServicioEstilo servicio = new ServicioEstilo();
+            var lista = servicio.GetLista();
+            Estilo estiloDefault = new Estilo();
+            estiloDefault.EstiloId = 0;
+            estiloDefault.Nombre = "<Seleccionar Estilo>";
+            lista.Insert(0, estiloDefault);
+            comboEstilo.DataSource = lista;
+            comboEstilo.DisplayMember = "Nombre";
+            comboEstilo.ValueMember = "EstiloId";
+            comboEstilo.SelectedIndex = 0;
+        }
+        public static void CargarDatosComboSoporte(ref ComboBox comboSoporte)
+        {
+            ServicioSoporte servicio = new ServicioSoporte();
+            var lista = servicio.GetLista();
+            Soporte soporteDefault = new Soporte();
+            soporteDefault.SoporteId = 0;
+            soporteDefault.Nombre = "<Seleccionar Soporte>";
+            lista.Insert(0, soporteDefault);
+            comboSoporte.DataSource = lista;
+            comboSoporte.DisplayMember = "Nombre";
+            comboSoporte.ValueMember = "SoporteId";
+            comboSoporte.SelectedIndex = 0;
+        }
+        public static void CargarDatosComboNegocio(ref ComboBox comboNegocio)
+        {
+            ServicioNegocio servicio = new ServicioNegocio();
+            var lista = servicio.GetNegocios();
+            Negocio negocioDefault = new Negocio();
+            negocioDefault.NegocioId = 0;
+            negocioDefault.Nombre = "<Seleccionar Negocio>";
+            lista.Insert(0, negocioDefault);
+            comboNegocio.DataSource = lista;
+            comboNegocio.DisplayMember = "Nombre";
+            comboNegocio.ValueMember = "NegocioId";
+            comboNegocio.SelectedIndex = 0;
+        }
         public static void CargarDatosComboNacionalidad(ref ComboBox NacionalidadComboBox)
         {
             ServicioNacionalidad servicioNacionalidad = new ServicioNacionalidad();

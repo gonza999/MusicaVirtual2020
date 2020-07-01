@@ -77,6 +77,9 @@ namespace MusicaVirtual2020.Windows
             this.interprete = interprete;
         }
 
-       
+        private void AgregarNacionalidadButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

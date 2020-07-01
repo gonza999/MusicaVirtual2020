@@ -112,6 +112,7 @@
             this.AgregarNacionalidadButton.Size = new System.Drawing.Size(34, 32);
             this.AgregarNacionalidadButton.TabIndex = 6;
             this.AgregarNacionalidadButton.UseVisualStyleBackColor = false;
+            this.AgregarNacionalidadButton.Click += new System.EventHandler(this.AgregarNacionalidadButton_Click);
             // 
             // InterpretesAEForm
             // 

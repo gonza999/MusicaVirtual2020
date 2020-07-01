@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MusicaVirtual2020.Entidades.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,5 +27,6 @@ namespace MusicaVirtual2020.Entidades
 
         public decimal Costo { get; set; }
 
+        public List<Tema> Temas { get; set; } = new List<Tema>();
     }
 }
