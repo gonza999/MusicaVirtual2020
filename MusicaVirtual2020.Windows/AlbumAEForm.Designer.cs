@@ -54,13 +54,15 @@
             this.txtAnioComprado = new System.Windows.Forms.TextBox();
             this.txtCosto = new System.Windows.Forms.TextBox();
             this.dgvDatosTemas = new System.Windows.Forms.DataGridView();
-            this.cmnTema = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmnDuracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmnAnio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CancelButton = new System.Windows.Forms.Button();
             this.OkButton = new System.Windows.Forms.Button();
             this.pistasNumericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.cmnNro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmnTema = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmnDuracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CmnEditar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.cmnBorrar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosTemas)).BeginInit();
@@ -74,7 +76,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(685, 31);
             this.panel1.TabIndex = 0;
@@ -149,10 +151,10 @@
             // 
             this.txtTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTitulo.Location = new System.Drawing.Point(100, 43);
-            this.txtTitulo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTitulo.Margin = new System.Windows.Forms.Padding(2);
             this.txtTitulo.Name = "txtTitulo";
             this.txtTitulo.Size = new System.Drawing.Size(333, 22);
-            this.txtTitulo.TabIndex = 2;
+            this.txtTitulo.TabIndex = 0;
             // 
             // comboInterprete
             // 
@@ -160,10 +162,10 @@
             this.comboInterprete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboInterprete.FormattingEnabled = true;
             this.comboInterprete.Location = new System.Drawing.Point(100, 72);
-            this.comboInterprete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboInterprete.Margin = new System.Windows.Forms.Padding(2);
             this.comboInterprete.Name = "comboInterprete";
             this.comboInterprete.Size = new System.Drawing.Size(191, 24);
-            this.comboInterprete.TabIndex = 3;
+            this.comboInterprete.TabIndex = 1;
             // 
             // comboEstilo
             // 
@@ -171,10 +173,10 @@
             this.comboEstilo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboEstilo.FormattingEnabled = true;
             this.comboEstilo.Location = new System.Drawing.Point(100, 102);
-            this.comboEstilo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboEstilo.Margin = new System.Windows.Forms.Padding(2);
             this.comboEstilo.Name = "comboEstilo";
             this.comboEstilo.Size = new System.Drawing.Size(191, 24);
-            this.comboEstilo.TabIndex = 3;
+            this.comboEstilo.TabIndex = 2;
             // 
             // comboSoporte
             // 
@@ -182,7 +184,7 @@
             this.comboSoporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboSoporte.FormattingEnabled = true;
             this.comboSoporte.Location = new System.Drawing.Point(100, 130);
-            this.comboSoporte.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboSoporte.Margin = new System.Windows.Forms.Padding(2);
             this.comboSoporte.Name = "comboSoporte";
             this.comboSoporte.Size = new System.Drawing.Size(191, 24);
             this.comboSoporte.TabIndex = 3;
@@ -192,7 +194,7 @@
             this.btnAgregarInterprete.BackColor = System.Drawing.Color.Transparent;
             this.btnAgregarInterprete.Image = global::MusicaVirtual2020.Windows.Properties.Resources.AgregarAE;
             this.btnAgregarInterprete.Location = new System.Drawing.Point(306, 74);
-            this.btnAgregarInterprete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAgregarInterprete.Margin = new System.Windows.Forms.Padding(2);
             this.btnAgregarInterprete.Name = "btnAgregarInterprete";
             this.btnAgregarInterprete.Size = new System.Drawing.Size(32, 26);
             this.btnAgregarInterprete.TabIndex = 7;
@@ -203,7 +205,7 @@
             this.btnAgregarEstilo.BackColor = System.Drawing.Color.Transparent;
             this.btnAgregarEstilo.Image = global::MusicaVirtual2020.Windows.Properties.Resources.AgregarAE;
             this.btnAgregarEstilo.Location = new System.Drawing.Point(306, 103);
-            this.btnAgregarEstilo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAgregarEstilo.Margin = new System.Windows.Forms.Padding(2);
             this.btnAgregarEstilo.Name = "btnAgregarEstilo";
             this.btnAgregarEstilo.Size = new System.Drawing.Size(33, 24);
             this.btnAgregarEstilo.TabIndex = 7;
@@ -214,7 +216,7 @@
             this.btnAgregarSoporte.BackColor = System.Drawing.Color.Transparent;
             this.btnAgregarSoporte.Image = global::MusicaVirtual2020.Windows.Properties.Resources.AgregarAE;
             this.btnAgregarSoporte.Location = new System.Drawing.Point(306, 131);
-            this.btnAgregarSoporte.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAgregarSoporte.Margin = new System.Windows.Forms.Padding(2);
             this.btnAgregarSoporte.Name = "btnAgregarSoporte";
             this.btnAgregarSoporte.Size = new System.Drawing.Size(33, 24);
             this.btnAgregarSoporte.TabIndex = 7;
@@ -226,7 +228,7 @@
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.btnAgregaTemas);
             this.panel2.Location = new System.Drawing.Point(-128, 178);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(993, 321);
             this.panel2.TabIndex = 8;
@@ -248,11 +250,12 @@
             this.btnAgregaTemas.Enabled = false;
             this.btnAgregaTemas.Image = global::MusicaVirtual2020.Windows.Properties.Resources.AgregarAE;
             this.btnAgregaTemas.Location = new System.Drawing.Point(767, 12);
-            this.btnAgregaTemas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAgregaTemas.Margin = new System.Windows.Forms.Padding(2);
             this.btnAgregaTemas.Name = "btnAgregaTemas";
             this.btnAgregaTemas.Size = new System.Drawing.Size(35, 37);
-            this.btnAgregaTemas.TabIndex = 7;
+            this.btnAgregaTemas.TabIndex = 0;
             this.btnAgregaTemas.UseVisualStyleBackColor = false;
+            this.btnAgregaTemas.Click += new System.EventHandler(this.btnAgregaTemas_Click);
             // 
             // label7
             // 
@@ -271,17 +274,17 @@
             this.comboNegocio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboNegocio.FormattingEnabled = true;
             this.comboNegocio.Location = new System.Drawing.Point(439, 98);
-            this.comboNegocio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboNegocio.Margin = new System.Windows.Forms.Padding(2);
             this.comboNegocio.Name = "comboNegocio";
             this.comboNegocio.Size = new System.Drawing.Size(191, 24);
-            this.comboNegocio.TabIndex = 3;
+            this.comboNegocio.TabIndex = 5;
             // 
             // btnAgregaNegocio
             // 
             this.btnAgregaNegocio.BackColor = System.Drawing.Color.Transparent;
             this.btnAgregaNegocio.Image = global::MusicaVirtual2020.Windows.Properties.Resources.AgregarAE;
             this.btnAgregaNegocio.Location = new System.Drawing.Point(646, 90);
-            this.btnAgregaNegocio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAgregaNegocio.Margin = new System.Windows.Forms.Padding(2);
             this.btnAgregaNegocio.Name = "btnAgregaNegocio";
             this.btnAgregaNegocio.Size = new System.Drawing.Size(32, 39);
             this.btnAgregaNegocio.TabIndex = 7;
@@ -312,18 +315,18 @@
             // txtAnioComprado
             // 
             this.txtAnioComprado.Location = new System.Drawing.Point(537, 126);
-            this.txtAnioComprado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtAnioComprado.Margin = new System.Windows.Forms.Padding(2);
             this.txtAnioComprado.Name = "txtAnioComprado";
             this.txtAnioComprado.Size = new System.Drawing.Size(68, 22);
-            this.txtAnioComprado.TabIndex = 9;
+            this.txtAnioComprado.TabIndex = 6;
             // 
             // txtCosto
             // 
             this.txtCosto.Location = new System.Drawing.Point(537, 150);
-            this.txtCosto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCosto.Margin = new System.Windows.Forms.Padding(2);
             this.txtCosto.Name = "txtCosto";
             this.txtCosto.Size = new System.Drawing.Size(68, 22);
-            this.txtCosto.TabIndex = 9;
+            this.txtCosto.TabIndex = 7;
             this.txtCosto.Text = "0";
             // 
             // dgvDatosTemas
@@ -332,17 +335,64 @@
             this.dgvDatosTemas.AllowUserToDeleteRows = false;
             this.dgvDatosTemas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatosTemas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cmnNro,
             this.cmnTema,
             this.cmnDuracion,
-            this.cmnAnio});
+            this.CmnEditar,
+            this.cmnBorrar});
             this.dgvDatosTemas.Location = new System.Drawing.Point(0, 237);
-            this.dgvDatosTemas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvDatosTemas.Margin = new System.Windows.Forms.Padding(2);
             this.dgvDatosTemas.MultiSelect = false;
             this.dgvDatosTemas.Name = "dgvDatosTemas";
             this.dgvDatosTemas.ReadOnly = true;
             this.dgvDatosTemas.RowHeadersVisible = false;
             this.dgvDatosTemas.Size = new System.Drawing.Size(685, 217);
             this.dgvDatosTemas.TabIndex = 10;
+            // 
+            // CancelButton
+            // 
+            this.CancelButton.Image = global::MusicaVirtual2020.Windows.Properties.Resources.Cancelar;
+            this.CancelButton.Location = new System.Drawing.Point(447, 458);
+            this.CancelButton.Margin = new System.Windows.Forms.Padding(2);
+            this.CancelButton.Name = "CancelButton";
+            this.CancelButton.Size = new System.Drawing.Size(105, 33);
+            this.CancelButton.TabIndex = 9;
+            this.CancelButton.Text = "Cancelar";
+            this.CancelButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
+            // 
+            // OkButton
+            // 
+            this.OkButton.Image = global::MusicaVirtual2020.Windows.Properties.Resources.Aceptar;
+            this.OkButton.Location = new System.Drawing.Point(184, 458);
+            this.OkButton.Margin = new System.Windows.Forms.Padding(2);
+            this.OkButton.Name = "OkButton";
+            this.OkButton.Size = new System.Drawing.Size(107, 33);
+            this.OkButton.TabIndex = 8;
+            this.OkButton.Text = "OK";
+            this.OkButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.OkButton.UseVisualStyleBackColor = true;
+            this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
+            // 
+            // pistasNumericUpDown1
+            // 
+            this.pistasNumericUpDown1.Location = new System.Drawing.Point(439, 70);
+            this.pistasNumericUpDown1.Name = "pistasNumericUpDown1";
+            this.pistasNumericUpDown1.Size = new System.Drawing.Size(120, 22);
+            this.pistasNumericUpDown1.TabIndex = 4;
+            this.pistasNumericUpDown1.ValueChanged += new System.EventHandler(this.pistasNumericUpDown1_ValueChanged);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // cmnNro
+            // 
+            this.cmnNro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cmnNro.HeaderText = "Nro";
+            this.cmnNro.Name = "cmnNro";
+            this.cmnNro.ReadOnly = true;
             // 
             // cmnTema
             // 
@@ -358,49 +408,17 @@
             this.cmnDuracion.Name = "cmnDuracion";
             this.cmnDuracion.ReadOnly = true;
             // 
-            // cmnAnio
+            // CmnEditar
             // 
-            this.cmnAnio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cmnAnio.HeaderText = "Año";
-            this.cmnAnio.Name = "cmnAnio";
-            this.cmnAnio.ReadOnly = true;
+            this.CmnEditar.HeaderText = "";
+            this.CmnEditar.Name = "CmnEditar";
+            this.CmnEditar.ReadOnly = true;
             // 
-            // CancelButton
+            // cmnBorrar
             // 
-            this.CancelButton.Image = global::MusicaVirtual2020.Windows.Properties.Resources.Cancelar;
-            this.CancelButton.Location = new System.Drawing.Point(447, 458);
-            this.CancelButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(105, 33);
-            this.CancelButton.TabIndex = 11;
-            this.CancelButton.Text = "Cancelar";
-            this.CancelButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.CancelButton.UseVisualStyleBackColor = true;
-            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
-            // 
-            // OkButton
-            // 
-            this.OkButton.Image = global::MusicaVirtual2020.Windows.Properties.Resources.Aceptar;
-            this.OkButton.Location = new System.Drawing.Point(184, 458);
-            this.OkButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.OkButton.Name = "OkButton";
-            this.OkButton.Size = new System.Drawing.Size(107, 33);
-            this.OkButton.TabIndex = 12;
-            this.OkButton.Text = "OK";
-            this.OkButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.OkButton.UseVisualStyleBackColor = true;
-            this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
-            // 
-            // pistasNumericUpDown1
-            // 
-            this.pistasNumericUpDown1.Location = new System.Drawing.Point(439, 70);
-            this.pistasNumericUpDown1.Name = "pistasNumericUpDown1";
-            this.pistasNumericUpDown1.Size = new System.Drawing.Size(120, 22);
-            this.pistasNumericUpDown1.TabIndex = 13;
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
+            this.cmnBorrar.HeaderText = "";
+            this.cmnBorrar.Name = "cmnBorrar";
+            this.cmnBorrar.ReadOnly = true;
             // 
             // AlbumAEForm
             // 
@@ -435,7 +453,7 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AlbumAEForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AlbumAEForm";
@@ -478,12 +496,14 @@
         private System.Windows.Forms.TextBox txtAnioComprado;
         private System.Windows.Forms.TextBox txtCosto;
         private System.Windows.Forms.DataGridView dgvDatosTemas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cmnTema;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cmnDuracion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cmnAnio;
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Button OkButton;
         private System.Windows.Forms.NumericUpDown pistasNumericUpDown1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmnNro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmnTema;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmnDuracion;
+        private System.Windows.Forms.DataGridViewButtonColumn CmnEditar;
+        private System.Windows.Forms.DataGridViewButtonColumn cmnBorrar;
     }
 }

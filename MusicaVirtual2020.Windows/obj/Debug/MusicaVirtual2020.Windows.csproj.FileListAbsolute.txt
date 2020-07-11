@@ -140,3 +140,4 @@ C:\Users\Gonzalo\Desktop\Ejercicios C#\Instituto\Programacion\MusicaVirtual2020\
 C:\Users\Gonzalo\Desktop\Ejercicios C#\Instituto\Programacion\MusicaVirtual2020\MusicaVirtual2020.Windows\obj\Debug\MusicaVirtual2020.Windows.PaisFiltrarForm.resources
 C:\Users\Gonzalo\Desktop\Ejercicios C#\Instituto\Programacion\MusicaVirtual2020\MusicaVirtual2020.Windows\obj\Debug\MusicaVirtual2020.Windows.AlbumesForm.resources
 C:\Users\Gonzalo\Desktop\Ejercicios C#\Instituto\Programacion\MusicaVirtual2020\MusicaVirtual2020.Windows\obj\Debug\MusicaVirtual2020.Windows.AlbumAEForm.resources
+C:\Users\Gonzalo\Desktop\Ejercicios C#\Instituto\Programacion\MusicaVirtual2020\MusicaVirtual2020.Windows\obj\Debug\MusicaVirtual2020.Windows.TemasAEForm.resources

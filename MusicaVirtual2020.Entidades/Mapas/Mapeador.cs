@@ -54,7 +54,7 @@ namespace MusicaVirtual2020.Entidades.Mapas
 
         public static Album ConvertirAlbum(AlbumEditDto albumEditDto)
         {
-            return new Album
+            Album album=new Album
             {
                 AlbumId = albumEditDto.AlbumId,
                 Costo = albumEditDto.Costo,
@@ -65,10 +65,29 @@ namespace MusicaVirtual2020.Entidades.Mapas
                 Estilo =ConvertirEstilo(albumEditDto.EstiloListDto),
                 Negocio=ConvertirNegocio(albumEditDto.NegocioListDto),
                 Soporte=ConvertirSoporte(albumEditDto.SoporteListDto),
-
+                
             };
+            if (albumEditDto.TemasDto.Count>0)
+            {
+                albumEditDto.TemasDto.ForEach(t =>
+                {
+                    Tema tema = ConvertirTema(t);
+                    album.Temas.Add(tema);
+                });
+            }
+            return album;
         }
 
+        public static Tema ConvertirTema(TemaListDto temaListDto)
+        {
+            return new Tema
+            {
+                TemaId = temaListDto.TemaId,
+                PistaNumero = temaListDto.NroTema,
+                Nombre = temaListDto.Nombre,
+                Duracion = temaListDto.Duracion
+            };
+        }
 
 
         private static Soporte ConvertirSoporte(SoporteListDto soporteListDto)

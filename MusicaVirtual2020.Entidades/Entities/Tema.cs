@@ -13,5 +13,7 @@ namespace MusicaVirtual2020.Entidades.Entities
         public string Nombre { get; set; }
 
         public float Duracion { get; set; }
+
+        public Album Album { get; set; }
     }
 }

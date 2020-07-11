@@ -1,5 +1,7 @@
 ﻿using MusicaVirtual2020.Entidades;
 using MusicaVirtual2020.Entidades.DTOs.Album;
+using MusicaVirtual2020.Entidades.DTOs.Tema;
+using MusicaVirtual2020.Entidades.Entities;
 using MusicaVirtual2020.Entidades.Mapas;
 using MusicaVirtual2020.Windows.Helpers;
 using System;
@@ -21,6 +23,8 @@ namespace MusicaVirtual2020.Windows
             InitializeComponent();
         }
         private AlbumEditDto albumDto;
+        private List<TemaListDto> listaDto = new List<TemaListDto>();
+
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
@@ -52,6 +56,8 @@ namespace MusicaVirtual2020.Windows
                 albumDto.Pistas =(int)pistasNumericUpDown1.Value;
                 albumDto.AñoComprado =int.Parse( txtAnioComprado.Text);
                 albumDto.Costo = decimal.Parse(txtCosto.Text);
+
+                albumDto.TemasDto = listaDto;
 
                 DialogResult = DialogResult.OK;
             }
@@ -112,6 +118,68 @@ namespace MusicaVirtual2020.Windows
         internal AlbumEditDto GetAlbum()
         {
             return albumDto;
+        }
+        private void btnAgregaTemas_Click(object sender, EventArgs e)
+        {
+            TemasAEForm frm = new TemasAEForm();
+            DialogResult dr = frm.ShowDialog(this);
+            if (dr==DialogResult.OK)
+            {
+                try
+                {
+                    var temaListDto = frm.GetTema();       
+                    temaListDto.NroTema = listaDto.Count() + 1;
+                    //TODO:ver que no este repetido el tema 
+                    listaDto.Add(temaListDto);
+                    DataGridViewRow r = ConstruirFila();
+                    SetearFila(r,temaListDto);
+                    AgregarFila(r);
+                    if (pistasNumericUpDown1.Value==listaDto.Count())
+                    {
+                        btnAgregaTemas.Enabled = false;
+                    }
+                    else
+                    {
+                        btnAgregaTemas.Enabled = true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Helper.MensajeBox(ex.Message,Tipo.Error);
+                }
+            }
+        }
+
+        private void AgregarFila(DataGridViewRow r)
+        {
+            dgvDatosTemas.Rows.Add(r) ;
+        }
+
+        private void SetearFila(DataGridViewRow r, TemaListDto temaListDto)
+        {
+            r.Cells[cmnNro.Index].Value = temaListDto.NroTema;
+            r.Cells[cmnTema.Index].Value = temaListDto.Nombre;
+            r.Cells[cmnDuracion.Index].Value = temaListDto.Duracion;
+            r.Tag = temaListDto;
+        }
+
+        private DataGridViewRow ConstruirFila()
+        {
+            DataGridViewRow r = new DataGridViewRow();
+            r.CreateCells(dgvDatosTemas);
+            return r;
+        }
+
+        private void pistasNumericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            if (pistasNumericUpDown1.Value>0)
+            {
+                btnAgregaTemas.Enabled = true;
+            }
+            else
+            {
+                btnAgregaTemas.Enabled = false;
+            }
         }
     }
 }

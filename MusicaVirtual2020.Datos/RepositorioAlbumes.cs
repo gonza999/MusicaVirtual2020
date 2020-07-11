@@ -56,14 +56,13 @@ namespace MusicaVirtual2020.Datos
             };
         }
 
-        public void Agregar(AlbumEditDto albumEditDto)
+        public void Agregar(Album album,SqlTransaction transaction)
         {
-            Album album = Mapeador.ConvertirAlbum(albumEditDto);
             try
             {
                 var cadenaDeComando = "INSERT INTO Albumes (Album,InterpreteId,EstiloId,SoporteId,Pistas,NegocioId,AñoComprado,Costo )" +
                     "VALUES (@album,@interpreteId,@estiloId,@soporteId,@pistas,@negocioId,@anioComprado,@costo)";
-                var comando = new SqlCommand(cadenaDeComando,cn);
+                var comando = new SqlCommand(cadenaDeComando,cn,transaction);
                 comando.Parameters.AddWithValue("@album",album.Titulo);
                 comando.Parameters.AddWithValue("@interpreteId", album.Interprete.InterpreteId);
                 comando.Parameters.AddWithValue("@estiloId", album.Estilo.EstiloId);
@@ -75,10 +74,9 @@ namespace MusicaVirtual2020.Datos
                 comando.ExecuteNonQuery();
 
                 cadenaDeComando = "SELECT @@identity";
-                comando = new SqlCommand(cadenaDeComando,cn);
+                comando = new SqlCommand(cadenaDeComando,cn,transaction);
                 var id = (int)(decimal)comando.ExecuteScalar();
                 album.AlbumId = id;
-                albumEditDto.AlbumId = id;
             }
             catch (Exception e)
             {
