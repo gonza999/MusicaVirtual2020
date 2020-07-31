@@ -1,8 +1,6 @@
 ﻿using MusicaVirtual2020.Entidades.DTOs.Estilo;
-using MusicaVirtual2020.Entidades.DTOs.Interprete;
 using MusicaVirtual2020.Entidades.DTOs.Negocio;
 using MusicaVirtual2020.Entidades.DTOs.Soporte;
-using MusicaVirtual2020.Entidades.DTOs.Tema;
 using MusicaVirtual2020.Entidades.Entities;
 using System;
 using System.Collections.Generic;
@@ -18,7 +16,7 @@ namespace MusicaVirtual2020.Entidades.DTOs.Album
 
         public string Titulo { get; set; }
 
-        public InterpreteListDto InterpreteListDto { get; set; }
+        public string Interprete { get; set; }
 
         public EstiloListDto EstiloListDto { get; set; }
 
@@ -32,6 +30,6 @@ namespace MusicaVirtual2020.Entidades.DTOs.Album
 
         public decimal Costo { get; set; }
 
-        public List<TemaListDto> TemasDto { get; set; } = new List<TemaListDto>();
+        public List<MusicaVirtual2020.Entidades.Entities.Tema> Temas { get; set; } = new List<MusicaVirtual2020.Entidades.Entities.Tema>();
     }
 }

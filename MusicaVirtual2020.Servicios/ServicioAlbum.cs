@@ -2,6 +2,7 @@
 using MusicaVirtual2020.Entidades;
 using MusicaVirtual2020.Entidades.DTOs;
 using MusicaVirtual2020.Entidades.DTOs.Album;
+using MusicaVirtual2020.Entidades.DTOs.Interprete;
 using MusicaVirtual2020.Entidades.Mapas;
 using System;
 using System.Collections.Generic;
@@ -28,8 +29,8 @@ namespace MusicaVirtual2020.Servicios
             try
             {
                 cn = new ConexionBd();
-                repositorioInterpretes = new RepositorioInterpretes(cn.AbrirConexion());
-                repositorio = new RepositorioAlbumes(cn.AbrirConexion(), repositorioInterpretes);
+                //repositorioInterpretes = new RepositorioInterpretes(cn.AbrirConexion());
+                repositorio = new RepositorioAlbumes(cn.AbrirConexion());
                 var lista = repositorio.GetLista();
                 cn.CerrarConexion();
                 return lista;
@@ -40,20 +41,37 @@ namespace MusicaVirtual2020.Servicios
             }
         }
 
-        public void Agregar(AlbumEditDto albumEditDto)
+        public List<InterpretesAlbumesDto> GetCantidadXInterprete()
+        {
+            try
+            {
+                cn = new ConexionBd();
+                //repositorioInterpretes = new RepositorioInterpretes(cn.AbrirConexion());
+                repositorio = new RepositorioAlbumes(cn.AbrirConexion());
+                var lista = repositorio.GetCantidadXInterprete();
+                cn.CerrarConexion();
+                return lista;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public void Agregar(Album album)
         {
             SqlTransaction transac = null;
             try
             {
                 cn = new ConexionBd();
                 SqlConnection conexion = cn.AbrirConexion();
-                repositorio = new RepositorioAlbumes(conexion, repositorioInterpretes);
+                repositorio = new RepositorioAlbumes(conexion);
                 repositorioTemas = new RepositorioTemas(conexion);
                 using (transac = conexion.BeginTransaction())
                 {
-                    Album album = Mapeador.ConvertirAlbum(albumEditDto);
+                    //Album album = Mapeador.ConvertirAlbum(albumEditDto);
                     repositorio.Agregar(album, transac);
-                    albumEditDto.AlbumId = album.AlbumId;
+                    //albumEditDto.AlbumId = album.AlbumId;
                     if (album.Temas.Count > 0)
                     {
                         album.Temas.ForEach(t =>

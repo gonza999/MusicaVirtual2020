@@ -1,6 +1,7 @@
 ﻿using MusicaVirtual2020.Entidades;
 using MusicaVirtual2020.Entidades.DTOs;
 using MusicaVirtual2020.Entidades.DTOs.Album;
+using MusicaVirtual2020.Entidades.DTOs.Interprete;
 using MusicaVirtual2020.Entidades.Mapas;
 using System;
 using System.Collections.Generic;
@@ -14,12 +15,12 @@ namespace MusicaVirtual2020.Datos
     public class RepositorioAlbumes
     {
         private readonly SqlConnection cn;
-        private RepositorioInterpretes repositorioInterpretes;
+        //private RepositorioInterpretes repositorioInterpretes;
 
-        public RepositorioAlbumes(SqlConnection cn,RepositorioInterpretes repositorioInterpretes)
+        public RepositorioAlbumes(SqlConnection cn)
         {
             this.cn = cn;
-            this.repositorioInterpretes = repositorioInterpretes;
+            //this.repositorioInterpretes = repositorioInterpretes;
         }
 
         public List<AlbumListDto> GetLista()
@@ -27,7 +28,8 @@ namespace MusicaVirtual2020.Datos
             try
             {
                 List<AlbumListDto> lista = new List<AlbumListDto>();
-                var cadenaDeComando = "SELECT AlbumId,Album,InterpreteId,Pistas FROM Albumes";
+                var cadenaDeComando = "SELECT AlbumId,Album,Interprete,Pistas FROM Albumes INNER JOIN Interpretes " +
+                    "ON Interpretes.InterpreteId=Albumes.InterpreteId";
                 var comando = new SqlCommand(cadenaDeComando,cn);
                 var reader = comando.ExecuteReader();
                 while (reader.Read())
@@ -51,8 +53,42 @@ namespace MusicaVirtual2020.Datos
             {
                 AlbumId = reader.GetInt32(0),
                 Titulo = reader.GetString(1),
-                InterpreteListDto = repositorioInterpretes.GetInterpretesPorId(reader.GetInt32(2)),
+                Interprete = reader.GetString(2),
                 Pistas =reader.GetInt32(3)
+            };
+        }
+
+        public List<InterpretesAlbumesDto> GetCantidadXInterprete()
+        {
+            try
+            {
+                List<InterpretesAlbumesDto> lista = new List<InterpretesAlbumesDto>();
+                var cadenaDeComando = "SELECT i.Interprete,Count(a.Album) "+
+                        " FROM Albumes a JOIN Interpretes I ON a.InterpreteId = i.InterpreteId "+
+                        " GROUP BY i.Interprete";
+                var comando = new SqlCommand(cadenaDeComando, cn);
+                var reader = comando.ExecuteReader();
+                while (reader.Read())
+                {
+                    InterpretesAlbumesDto albumDto = ConstruirInterpretesAlbumesDto(reader);
+                    lista.Add(albumDto);
+                }
+                reader.Close();
+                return lista;
+
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        private InterpretesAlbumesDto ConstruirInterpretesAlbumesDto(SqlDataReader reader)
+        {
+            return new InterpretesAlbumesDto()
+            {
+                Interprete=reader.GetString(0),
+                Cantidad=reader.GetInt32(1)
             };
         }
 

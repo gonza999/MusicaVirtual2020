@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MusicaVirtual2020.Entidades.Entities
+﻿namespace MusicaVirtual2020.Entidades.Entities
 {
     public class Tema
     {
@@ -15,5 +9,20 @@ namespace MusicaVirtual2020.Entidades.Entities
         public float Duracion { get; set; }
 
         public Album Album { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null || !(obj is Tema))
+            {
+                return false;
+            }
+            return this.Nombre.ToUpper() == ((Tema)obj).Nombre.ToUpper();
+        }
+        public override int GetHashCode()
+        {
+            return this.Nombre.GetHashCode();
+        }
     }
+
+
 }

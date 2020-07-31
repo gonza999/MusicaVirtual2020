@@ -44,7 +44,7 @@
     <Compile Include="DTOs\Album\AlbumEditDto.cs" />
     <Compile Include="DTOs\Album\AlbumListDto.cs" />
     <Compile Include="DTOs\Estilo\EstiloListDto.cs" />
-    <Compile Include="DTOs\Interprete\InterpreteListDto.cs" />
+    <Compile Include="DTOs\Interprete\InterpretesAlbumesDto.cs" />
     <Compile Include="DTOs\Negocio\NegocioListDto.cs" />
     <Compile Include="DTOs\Soporte\SoporteListDto.cs" />
     <Compile Include="DTOs\Tema\TemaListDto.cs" />

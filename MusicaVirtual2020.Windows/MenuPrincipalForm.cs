@@ -141,9 +141,15 @@ namespace MusicaVirtual2020.Windows
 
             frm.Show();
         }
+
+
         #endregion
 
-
-
+        private void cantidadXInterpretesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AlbumesPorInterpretes frm = new AlbumesPorInterpretes();
+            frm.Text = "Cantidad de Albumes por Interpretes";
+            frm.ShowDialog(this);
+        }
     }
 }

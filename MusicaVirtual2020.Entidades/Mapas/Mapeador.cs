@@ -1,7 +1,6 @@
 ﻿using MusicaVirtual2020.Entidades.DTOs;
 using MusicaVirtual2020.Entidades.DTOs.Album;
 using MusicaVirtual2020.Entidades.DTOs.Estilo;
-using MusicaVirtual2020.Entidades.DTOs.Interprete;
 using MusicaVirtual2020.Entidades.DTOs.Negocio;
 using MusicaVirtual2020.Entidades.DTOs.Soporte;
 using MusicaVirtual2020.Entidades.DTOs.Tema;
@@ -16,14 +15,6 @@ namespace MusicaVirtual2020.Entidades.Mapas
 {
     public class Mapeador
     {
-        public static InterpreteListDto ConvertirInterpreteListDto(Interprete interprete)
-        {
-            return new InterpreteListDto
-            {
-                InterpreteId = interprete.InterpreteId,
-                Nombre = interprete.Nombre
-            };
-        }
 
         public static EstiloListDto ConvertirEstiloListDto(Estilo estilo)
         {
@@ -52,42 +43,44 @@ namespace MusicaVirtual2020.Entidades.Mapas
             };
         }
 
-        public static Album ConvertirAlbum(AlbumEditDto albumEditDto)
+        public static Album ConvertirAlbum(AlbumEditDto albumEditDto, int interpreteId)
         {
-            Album album=new Album
+            Album album = new Album
             {
                 AlbumId = albumEditDto.AlbumId,
                 Costo = albumEditDto.Costo,
                 AñoComprado = albumEditDto.AñoComprado,
                 Pistas = albumEditDto.Pistas,
                 Titulo = albumEditDto.Titulo,
-                Interprete =ConvertirInterprete(albumEditDto.InterpreteListDto),
-                Estilo =ConvertirEstilo(albumEditDto.EstiloListDto),
-                Negocio=ConvertirNegocio(albumEditDto.NegocioListDto),
-                Soporte=ConvertirSoporte(albumEditDto.SoporteListDto),
-                
+                Interprete = new Interprete() {
+                    Nombre = albumEditDto.Interprete,
+                    InterpreteId = interpreteId
+                },
+                Estilo = ConvertirEstilo(albumEditDto.EstiloListDto),
+                Negocio = ConvertirNegocio(albumEditDto.NegocioListDto),
+                Soporte = ConvertirSoporte(albumEditDto.SoporteListDto),
+
             };
-            if (albumEditDto.TemasDto.Count>0)
+            if (albumEditDto.Temas.Count > 0)
             {
-                albumEditDto.TemasDto.ForEach(t =>
+                albumEditDto.Temas.ForEach(tema =>
                 {
-                    Tema tema = ConvertirTema(t);
                     album.Temas.Add(tema);
                 });
             }
             return album;
         }
 
-        public static Tema ConvertirTema(TemaListDto temaListDto)
-        {
-            return new Tema
-            {
-                TemaId = temaListDto.TemaId,
-                PistaNumero = temaListDto.NroTema,
-                Nombre = temaListDto.Nombre,
-                Duracion = temaListDto.Duracion
-            };
-        }
+        //public static Tema ConvertirTema(TemaListDto temaListDto)
+        //{
+        //    return new Tema
+        //    {
+        //        TemaId = temaListDto.TemaId,
+        //        PistaNumero = temaListDto.NroTema,
+        //        Nombre = temaListDto.Nombre,
+        //        Duracion = temaListDto.Duracion
+        //    };
+        //}
 
 
         private static Soporte ConvertirSoporte(SoporteListDto soporteListDto)
@@ -117,21 +110,12 @@ namespace MusicaVirtual2020.Entidades.Mapas
             };
         }
 
-        private static Interprete ConvertirInterprete(InterpreteListDto interpreteListDto)
-        {
-            return new Interprete
-            {
-                InterpreteId = interpreteListDto.InterpreteId,
-                Nombre = interpreteListDto.Nombre
-            };
-        }
-
         public static AlbumListDto ConvertirAlbumListDto(AlbumEditDto albumEditDto)
         {
             return new AlbumListDto
             {
                 AlbumId = albumEditDto.AlbumId,
-                InterpreteListDto = albumEditDto.InterpreteListDto,
+                Interprete = albumEditDto.Interprete,
                 Pistas = albumEditDto.Pistas,
                 Titulo=albumEditDto.Titulo
             };

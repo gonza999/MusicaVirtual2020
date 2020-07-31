@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using MusicaVirtual2020.Entidades;
-using MusicaVirtual2020.Entidades.DTOs.Interprete;
 
 namespace MusicaVirtual2020.Datos
 {
@@ -58,11 +57,11 @@ namespace MusicaVirtual2020.Datos
             }
         }
 
-        internal InterpreteListDto GetInterpretesPorId(int id)
+        internal Interprete GetInterpretesPorId(int id)
         {
             try
             {
-                InterpreteListDto interpreteDto = null;
+                Interprete interprete = null;
                 var cadenaDeComando = "SELECT InterpreteId,Interprete from Interpretes WHERE InterpreteId=@id";
                 var comando = new SqlCommand(cadenaDeComando,_cn);
                 comando.Parameters.AddWithValue("@id",id);
@@ -70,10 +69,10 @@ namespace MusicaVirtual2020.Datos
                 if (reader.HasRows)
                 {
                     reader.Read();
-                    interpreteDto = ConstruirInterpreteDto(reader);
+                    interprete = ConstruirInterprete(reader);
                 }
                 reader.Close();
-                return interpreteDto;
+                return interprete;
             }
             catch (Exception ex)
             {
@@ -81,14 +80,14 @@ namespace MusicaVirtual2020.Datos
             }
         }
 
-        private InterpreteListDto ConstruirInterpreteDto(SqlDataReader reader)
-        {
-            return new InterpreteListDto
-            {
-                InterpreteId = reader.GetInt32(0),
-                Nombre = reader.GetString(1)
-            };
-        }
+        //private Interprete ConstruirInterprete(SqlDataReader reader)
+        //{
+        //    return new Interprete
+        //    {
+        //        InterpreteId = reader.GetInt32(0),
+        //        Nombre = reader.GetString(1)
+        //    };
+        //}
 
         public bool Existe(Interprete interprete)
         {

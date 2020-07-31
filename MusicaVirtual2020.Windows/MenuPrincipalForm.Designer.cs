@@ -30,28 +30,33 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.PaisesToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.InterpretesToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.NegociosToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.EstilosToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.SoportesToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.AlbumesToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.paisesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.intérpretesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.negociosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.estilosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.soporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.albumesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.albumesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cantidadXInterpretesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cantidadXNegocioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.paisesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cantidadXInterpretesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.PaisesToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.InterpretesToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.NegociosToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.EstilosToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.SoportesToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.AlbumesToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -84,26 +89,113 @@
             this.archivosToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.archivosToolStripMenuItem.Text = "Archivos";
             // 
+            // paisesToolStripMenuItem
+            // 
+            this.paisesToolStripMenuItem.Image = global::MusicaVirtual2020.Windows.Properties.Resources.iconfinder_globe_green_10443;
+            this.paisesToolStripMenuItem.Name = "paisesToolStripMenuItem";
+            this.paisesToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.paisesToolStripMenuItem.Text = "Paises";
+            this.paisesToolStripMenuItem.Click += new System.EventHandler(this.paisesToolStripMenuItem_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(127, 6);
+            // 
+            // intérpretesToolStripMenuItem
+            // 
+            this.intérpretesToolStripMenuItem.Image = global::MusicaVirtual2020.Windows.Properties.Resources.iconfinder_stock_people_21481;
+            this.intérpretesToolStripMenuItem.Name = "intérpretesToolStripMenuItem";
+            this.intérpretesToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.intérpretesToolStripMenuItem.Text = "Intérpretes";
+            this.intérpretesToolStripMenuItem.Click += new System.EventHandler(this.intérpretesToolStripMenuItem_Click);
+            // 
+            // negociosToolStripMenuItem
+            // 
+            this.negociosToolStripMenuItem.Image = global::MusicaVirtual2020.Windows.Properties.Resources.iconfinder_09_61473;
+            this.negociosToolStripMenuItem.Name = "negociosToolStripMenuItem";
+            this.negociosToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.negociosToolStripMenuItem.Text = "Negocios";
+            this.negociosToolStripMenuItem.Click += new System.EventHandler(this.negociosToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(127, 6);
+            // 
+            // estilosToolStripMenuItem
+            // 
+            this.estilosToolStripMenuItem.Image = global::MusicaVirtual2020.Windows.Properties.Resources.iconfinder_music_54893;
+            this.estilosToolStripMenuItem.Name = "estilosToolStripMenuItem";
+            this.estilosToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.estilosToolStripMenuItem.Text = "Estilos";
+            this.estilosToolStripMenuItem.Click += new System.EventHandler(this.estilosToolStripMenuItem_Click);
+            // 
+            // soporteToolStripMenuItem
+            // 
+            this.soporteToolStripMenuItem.Image = global::MusicaVirtual2020.Windows.Properties.Resources.iconfinder_cdaudio_unmount_18274;
+            this.soporteToolStripMenuItem.Name = "soporteToolStripMenuItem";
+            this.soporteToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.soporteToolStripMenuItem.Text = "Soporte";
+            this.soporteToolStripMenuItem.Click += new System.EventHandler(this.soporteToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(127, 6);
+            // 
+            // albumesToolStripMenuItem
+            // 
+            this.albumesToolStripMenuItem.Image = global::MusicaVirtual2020.Windows.Properties.Resources.iconfinder_folder_music_7487;
+            this.albumesToolStripMenuItem.Name = "albumesToolStripMenuItem";
+            this.albumesToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.albumesToolStripMenuItem.Text = "Albumes";
+            this.albumesToolStripMenuItem.Click += new System.EventHandler(this.albumesToolStripMenuItem_Click);
             // 
             // consultasToolStripMenuItem
             // 
+            this.consultasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.albumesToolStripMenuItem1,
+            this.paisesToolStripMenuItem1});
             this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
             this.consultasToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.consultasToolStripMenuItem.Text = "Consultas";
+            // 
+            // albumesToolStripMenuItem1
+            // 
+            this.albumesToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cantidadXInterpretesToolStripMenuItem,
+            this.cantidadXNegocioToolStripMenuItem});
+            this.albumesToolStripMenuItem1.Name = "albumesToolStripMenuItem1";
+            this.albumesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.albumesToolStripMenuItem1.Text = "Albumes";
+            // 
+            // cantidadXInterpretesToolStripMenuItem
+            // 
+            this.cantidadXInterpretesToolStripMenuItem.Name = "cantidadXInterpretesToolStripMenuItem";
+            this.cantidadXInterpretesToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.cantidadXInterpretesToolStripMenuItem.Text = "Cantidad X Interpretes";
+            this.cantidadXInterpretesToolStripMenuItem.Click += new System.EventHandler(this.cantidadXInterpretesToolStripMenuItem_Click);
+            // 
+            // cantidadXNegocioToolStripMenuItem
+            // 
+            this.cantidadXNegocioToolStripMenuItem.Name = "cantidadXNegocioToolStripMenuItem";
+            this.cantidadXNegocioToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.cantidadXNegocioToolStripMenuItem.Text = "Cantidad X Negocio";
+            // 
+            // paisesToolStripMenuItem1
+            // 
+            this.paisesToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cantidadXInterpretesToolStripMenuItem1});
+            this.paisesToolStripMenuItem1.Name = "paisesToolStripMenuItem1";
+            this.paisesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.paisesToolStripMenuItem1.Text = "Paises";
+            // 
+            // cantidadXInterpretesToolStripMenuItem1
+            // 
+            this.cantidadXInterpretesToolStripMenuItem1.Name = "cantidadXInterpretesToolStripMenuItem1";
+            this.cantidadXInterpretesToolStripMenuItem1.Size = new System.Drawing.Size(191, 22);
+            this.cantidadXInterpretesToolStripMenuItem1.Text = "Cantidad X Interpretes";
             // 
             // salirToolStripMenuItem
             // 
@@ -130,29 +222,6 @@
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 55);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 55);
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 55);
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 428);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(800, 22);
-            this.statusStrip1.TabIndex = 2;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
             // PaisesToolStripButton
             // 
             this.PaisesToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -164,6 +233,11 @@
             this.PaisesToolStripButton.Text = "toolStripButton1";
             this.PaisesToolStripButton.ToolTipText = "Países";
             this.PaisesToolStripButton.Click += new System.EventHandler(this.PaisesToolStripButton_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 55);
             // 
             // InterpretesToolStripButton
             // 
@@ -189,6 +263,11 @@
             this.NegociosToolStripButton.ToolTipText = "Negocios";
             this.NegociosToolStripButton.Click += new System.EventHandler(this.NegociosToolStripButton_Click);
             // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 55);
+            // 
             // EstilosToolStripButton
             // 
             this.EstilosToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -213,6 +292,11 @@
             this.SoportesToolStripButton.ToolTipText = "Soportes";
             this.SoportesToolStripButton.Click += new System.EventHandler(this.SoportesToolStripButton_Click);
             // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 55);
+            // 
             // AlbumesToolStripButton
             // 
             this.AlbumesToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -225,53 +309,13 @@
             this.AlbumesToolStripButton.ToolTipText = "Álbumes";
             this.AlbumesToolStripButton.Click += new System.EventHandler(this.AlbumesToolStripButton_Click);
             // 
-            // paisesToolStripMenuItem
+            // statusStrip1
             // 
-            this.paisesToolStripMenuItem.Image = global::MusicaVirtual2020.Windows.Properties.Resources.iconfinder_globe_green_10443;
-            this.paisesToolStripMenuItem.Name = "paisesToolStripMenuItem";
-            this.paisesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.paisesToolStripMenuItem.Text = "Paises";
-            this.paisesToolStripMenuItem.Click += new System.EventHandler(this.paisesToolStripMenuItem_Click);
-            // 
-            // intérpretesToolStripMenuItem
-            // 
-            this.intérpretesToolStripMenuItem.Image = global::MusicaVirtual2020.Windows.Properties.Resources.iconfinder_stock_people_21481;
-            this.intérpretesToolStripMenuItem.Name = "intérpretesToolStripMenuItem";
-            this.intérpretesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.intérpretesToolStripMenuItem.Text = "Intérpretes";
-            this.intérpretesToolStripMenuItem.Click += new System.EventHandler(this.intérpretesToolStripMenuItem_Click);
-            // 
-            // negociosToolStripMenuItem
-            // 
-            this.negociosToolStripMenuItem.Image = global::MusicaVirtual2020.Windows.Properties.Resources.iconfinder_09_61473;
-            this.negociosToolStripMenuItem.Name = "negociosToolStripMenuItem";
-            this.negociosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.negociosToolStripMenuItem.Text = "Negocios";
-            this.negociosToolStripMenuItem.Click += new System.EventHandler(this.negociosToolStripMenuItem_Click);
-            // 
-            // estilosToolStripMenuItem
-            // 
-            this.estilosToolStripMenuItem.Image = global::MusicaVirtual2020.Windows.Properties.Resources.iconfinder_music_54893;
-            this.estilosToolStripMenuItem.Name = "estilosToolStripMenuItem";
-            this.estilosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.estilosToolStripMenuItem.Text = "Estilos";
-            this.estilosToolStripMenuItem.Click += new System.EventHandler(this.estilosToolStripMenuItem_Click);
-            // 
-            // soporteToolStripMenuItem
-            // 
-            this.soporteToolStripMenuItem.Image = global::MusicaVirtual2020.Windows.Properties.Resources.iconfinder_cdaudio_unmount_18274;
-            this.soporteToolStripMenuItem.Name = "soporteToolStripMenuItem";
-            this.soporteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.soporteToolStripMenuItem.Text = "Soporte";
-            this.soporteToolStripMenuItem.Click += new System.EventHandler(this.soporteToolStripMenuItem_Click);
-            // 
-            // albumesToolStripMenuItem
-            // 
-            this.albumesToolStripMenuItem.Image = global::MusicaVirtual2020.Windows.Properties.Resources.iconfinder_folder_music_7487;
-            this.albumesToolStripMenuItem.Name = "albumesToolStripMenuItem";
-            this.albumesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.albumesToolStripMenuItem.Text = "Albumes";
-            this.albumesToolStripMenuItem.Click += new System.EventHandler(this.albumesToolStripMenuItem_Click);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 428);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(800, 22);
+            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Text = "statusStrip1";
             // 
             // MenuPrincipalForm
             // 
@@ -322,6 +366,11 @@
         private System.Windows.Forms.ToolStripButton SoportesToolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripButton AlbumesToolStripButton;
+        private System.Windows.Forms.ToolStripMenuItem albumesToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem cantidadXInterpretesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cantidadXNegocioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem paisesToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem cantidadXInterpretesToolStripMenuItem1;
     }
 }
 

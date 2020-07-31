@@ -73,7 +73,7 @@ namespace MusicaVirtual2020.Windows
         private void SetearFila(DataGridViewRow r, AlbumListDto album)
         {
             r.Cells[cmnAlbum.Index].Value = album.Titulo;
-            r.Cells[cmnInterprete.Index].Value = album.InterpreteListDto.Nombre;
+            r.Cells[cmnInterprete.Index].Value = album.Interprete;
             r.Cells[cmnPistas.Index].Value = album.Pistas;
             r.Tag = album;
         }
@@ -100,7 +100,9 @@ namespace MusicaVirtual2020.Windows
                 try
                 {
                     AlbumEditDto albumEditDto = frm.GetAlbum();
-                    servicio.Agregar(albumEditDto);
+                    int interpreteId = frm.GetInterpreteId();
+                    var album = Mapeador.ConvertirAlbum(albumEditDto, interpreteId);
+                    servicio.Agregar(album);
                     var r = ConstruirFila();
                     AlbumListDto albumListDto = Mapeador.ConvertirAlbumListDto(albumEditDto);
                     SetearFila(r,albumListDto);

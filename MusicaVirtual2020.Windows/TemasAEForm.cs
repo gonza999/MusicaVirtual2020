@@ -1,4 +1,5 @@
 ﻿using MusicaVirtual2020.Entidades.DTOs.Tema;
+using MusicaVirtual2020.Entidades.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +18,7 @@ namespace MusicaVirtual2020.Windows
         {
             InitializeComponent();
         }
-        private TemaListDto temaListDto;
+        private Tema tema;
         private void CancelButton_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
@@ -27,18 +28,18 @@ namespace MusicaVirtual2020.Windows
         {
             if (ValidarDatos())
             {
-                if (temaListDto==null)
+                if (tema==null)
                 {
-                    temaListDto = new TemaListDto();
+                    tema = new Tema();
                 }
-                temaListDto.Nombre = txtTema.Text;
-                temaListDto.Duracion =float.Parse(txtDuracion.Text);
+                tema.Nombre = txtTema.Text;
+                tema.Duracion =float.Parse(txtDuracion.Text);
                 DialogResult = DialogResult.OK;
             }
         }
-        public TemaListDto GetTema()
+        public Tema GetTema()
         {
-            return temaListDto;
+            return tema;
         }
         private bool ValidarDatos()
         {

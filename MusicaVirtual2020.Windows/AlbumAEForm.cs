@@ -23,7 +23,7 @@ namespace MusicaVirtual2020.Windows
             InitializeComponent();
         }
         private AlbumEditDto albumDto;
-        private List<TemaListDto> listaDto = new List<TemaListDto>();
+        private List<Tema> temas = new List<Tema>();
 
         protected override void OnLoad(EventArgs e)
         {
@@ -39,7 +39,7 @@ namespace MusicaVirtual2020.Windows
         {
             DialogResult = DialogResult.Cancel;
         }
-
+        int interpreteId = 0;
         private void OkButton_Click(object sender, EventArgs e)
         {
             if (ValidarDatos())
@@ -49,7 +49,8 @@ namespace MusicaVirtual2020.Windows
                     albumDto = new AlbumEditDto();
                 }
                 albumDto.Titulo = txtTitulo.Text;
-                albumDto.InterpreteListDto = Mapeador.ConvertirInterpreteListDto((Interprete)comboInterprete.SelectedItem);
+                albumDto.Interprete = ((Interprete)comboInterprete.SelectedItem).Nombre;
+                interpreteId = ((Interprete)comboInterprete.SelectedItem).InterpreteId;
                 albumDto.EstiloListDto = Mapeador.ConvertirEstiloListDto((Estilo)comboEstilo.SelectedItem);
                 albumDto.NegocioListDto = Mapeador.ConvertirNegocioListDto((Negocio) comboNegocio.SelectedItem);
                 albumDto.SoporteListDto = Mapeador.ConveritirSoporteListDto((Soporte)comboSoporte.SelectedItem);
@@ -57,7 +58,7 @@ namespace MusicaVirtual2020.Windows
                 albumDto.AñoComprado =int.Parse( txtAnioComprado.Text);
                 albumDto.Costo = decimal.Parse(txtCosto.Text);
 
-                albumDto.TemasDto = listaDto;
+                albumDto.Temas = temas;
 
                 DialogResult = DialogResult.OK;
             }
@@ -115,6 +116,11 @@ namespace MusicaVirtual2020.Windows
             return valido;
         }
 
+        internal int GetInterpreteId()
+        {
+            return interpreteId;
+        }
+
         internal AlbumEditDto GetAlbum()
         {
             return albumDto;
@@ -127,20 +133,27 @@ namespace MusicaVirtual2020.Windows
             {
                 try
                 {
-                    var temaListDto = frm.GetTema();       
-                    temaListDto.NroTema = listaDto.Count() + 1;
-                    //TODO:ver que no este repetido el tema 
-                    listaDto.Add(temaListDto);
-                    DataGridViewRow r = ConstruirFila();
-                    SetearFila(r,temaListDto);
-                    AgregarFila(r);
-                    if (pistasNumericUpDown1.Value==listaDto.Count())
+                    Tema tema = frm.GetTema();
+
+                    if (!temas.Contains(tema))
                     {
-                        btnAgregaTemas.Enabled = false;
+                        tema.PistaNumero = temas.Count() + 1;
+                        temas.Add(tema);
+                        DataGridViewRow r = ConstruirFila();
+                        SetearFila(r, tema);
+                        AgregarFila(r);
+                        if (pistasNumericUpDown1.Value == temas.Count())
+                        {
+                            btnAgregaTemas.Enabled = false;
+                        }
+                        else
+                        {
+                            btnAgregaTemas.Enabled = true;
+                        }
                     }
                     else
                     {
-                        btnAgregaTemas.Enabled = true;
+                        Helper.MensajeBox("Tema repetido",Tipo.Error);
                     }
                 }
                 catch (Exception ex)
@@ -155,12 +168,12 @@ namespace MusicaVirtual2020.Windows
             dgvDatosTemas.Rows.Add(r) ;
         }
 
-        private void SetearFila(DataGridViewRow r, TemaListDto temaListDto)
+        private void SetearFila(DataGridViewRow r, Tema tema)
         {
-            r.Cells[cmnNro.Index].Value = temaListDto.NroTema;
-            r.Cells[cmnTema.Index].Value = temaListDto.Nombre;
-            r.Cells[cmnDuracion.Index].Value = temaListDto.Duracion;
-            r.Tag = temaListDto;
+            r.Cells[cmnNro.Index].Value = tema.PistaNumero;
+            r.Cells[cmnTema.Index].Value = tema.Nombre;
+            r.Cells[cmnDuracion.Index].Value = tema.Duracion;
+            r.Tag = tema;
         }
 
         private DataGridViewRow ConstruirFila()
